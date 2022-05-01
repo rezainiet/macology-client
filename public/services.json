@@ -1,0 +1,74 @@
+[
+    {
+        "id": 1,
+        "name": "WEIGHT LOSS",
+        "price": "300",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Weight Loss service from 300 dollars",
+        "img": "https://i.ibb.co/vC5ntDN/service-1.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 2,
+        "name": "EXCERCISE PROGRAMING",
+        "price": "100",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Excercise Programming service from 100 dollars",
+        "img": "https://i.ibb.co/d0jX1Tt/service-2.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 3,
+        "name": "PERSONAL TRAINING",
+        "price": "0",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Personal Training service for FREE!",
+        "img": "https://i.ibb.co/Wn61Bwg/service-3.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 4,
+        "name": "EXCERCISE PROGRAMING",
+        "price": "100",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Excercise Programming service from 100 dollars",
+        "img": "https://i.ibb.co/d0jX1Tt/service-2.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 5,
+        "name": "PERSONAL TRAINING",
+        "price": "0",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Personal Training service for FREE!",
+        "img": "https://i.ibb.co/Wn61Bwg/service-3.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 6,
+        "name": "EXCERCISE PROGRAMING",
+        "price": "100",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Excercise Programming service from 100 dollars",
+        "img": "https://i.ibb.co/d0jX1Tt/service-2.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 7,
+        "name": "PERSONAL TRAINING",
+        "price": "0",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Personal Training service for FREE!",
+        "img": "https://i.ibb.co/Wn61Bwg/service-3.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 8,
+        "name": "EXCERCISE PROGRAMING",
+        "price": "100",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Excercise Programming service from 100 dollars",
+        "img": "https://i.ibb.co/d0jX1Tt/service-2.png",
+        "supp": "Masud Reza"
+    },
+    {
+        "id": 9,
+        "name": "PERSONAL TRAINING",
+        "price": "0",
+        "description": "I have almost 100+ students and i teach them that how to build up their fitness and body. Try Personal Training service for FREE!",
+        "img": "https://i.ibb.co/Wn61Bwg/service-3.png",
+        "supp": "Masud Reza"
+    }
+]
