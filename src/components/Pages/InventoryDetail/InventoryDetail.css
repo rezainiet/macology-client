@@ -1,0 +1,176 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+
+.productImage img {
+    width: 100%;
+}
+
+section {
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+    padding: 0 1.5rem;
+}
+
+.detailContainer {
+    width: 100%;
+    max-width: 98rem;
+    padding: 5rem;
+    background-color: #fff;
+    box-shadow: 0 1.4rem 8rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 0.8rem;
+}
+
+.productImage {
+    min-width: 35rem;
+    max-width: 35rem;
+    height: 30rem;
+    transform: translateX(-8rem);
+    position: relative;
+}
+
+.productImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.8rem;
+}
+
+.productImage::before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to right, rgba(79, 172, 254, 0.3), rgba(0, 242, 254, 0.3));
+    box-shadow: 0.5rem 0.5rem 1px rgba(0, 0, 0, .05);
+    border-radius: .8rem;
+}
+
+.author span {
+    display: block;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0.5rem 0;
+}
+
+.productTitle {
+    font-size: 2.5rem;
+    margin: 1.5rem 0.2rem;
+    text-transform: uppercase;
+    color: #ff2d61;
+}
+
+.productDesc {
+    margin-bottom: 3rem;
+    font-size: 1.4rem;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.deliveredBtn {
+    display: inline-block;
+    padding: 0.8rem 2.2rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #ff6e0d;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.deliveredBtn:hover {
+    background: #ff2d61;
+}
+
+.stockBtn {
+    display: inline-block;
+    padding: 0.8rem 3rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #4facfe;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+
+.stockBtn:hover {
+    background: #ff2d61;
+}
+
+.btnGroup input {
+    padding: 10px 20px;
+    border: 1px solid #ff2d61;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+
+@media screen and (max-width: 1068px) {
+    .detailContainer {
+        max-width: 80rem;
+    }
+
+    .productImage {
+        min-width: 30rem;
+        max-width: 30rem;
+    }
+
+    .btnGroup input {
+        padding: 10px 20px;
+        border: 1px solid #ff2d61;
+        border-radius: 50px;
+        margin-left: 0;
+    }
+
+}
+
+@media screen and (max-width: 868px) {
+    .detailContainer {
+        max-width: 70rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .detailContainer {
+        padding: 2.5rem;
+        flex-direction: column;
+    }
+
+    .productImage {
+        min-width: 100%;
+        max-width: 100%;
+        transform: translate(0, -8rem);
+    }
+
+}

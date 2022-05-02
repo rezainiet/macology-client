@@ -6,7 +6,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('services.json')
+        fetch('http://localhost:4000/products')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -20,7 +20,7 @@ const Services = () => {
             <div className="container">
                 <div className="row g-4">
                     {
-                        services.map(service => <Service key={service.id} service={service}></Service>)
+                        services.slice(0, 6).map(service => <Service key={service._id} service={service}></Service>)
                     }
                 </div>
             </div>
