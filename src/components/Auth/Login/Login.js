@@ -1,15 +1,25 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './Login.css'
 import googleLogo from '../../../images/google.ico';
 import bg from '../../../images/auth.svg'
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
     const navigate = useNavigate();
 
     const handleNavigateRegister = () => {
         navigate('/register');
     }
+
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        const newEmail = emailRef.current.value;
+        const newPassword = passwordRef.current.value;
+        console.log(newEmail, newPassword);
+    }
+
     return (
         <div>
             <section>
@@ -19,14 +29,14 @@ const Login = () => {
                 <div className="contentBox">
                     <div className="formBox">
                         <h2>Login</h2>
-                        <form>
+                        <form onSubmit={handleFormSubmit}>
                             <div className="inputBox">
                                 <span>Email</span>
-                                <input type="email" name="email" />
+                                <input type="email" ref={emailRef} name="email" />
                             </div>
                             <div className="inputBox">
                                 <span>Password</span>
-                                <input type="password" name="password" />
+                                <input ref={passwordRef} type="password" name="password" />
                             </div>
                             <div className="inputBox">
                                 <input type="submit" value="Login" />

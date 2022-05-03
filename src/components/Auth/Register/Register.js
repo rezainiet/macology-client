@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import googleLogo from '../../../images/google.ico';
 import bg from '../../../images/auth.svg'
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate();
+    const userNameRef = useRef('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
 
     const handleNavigateLogin = () => {
         navigate('/login');
+    }
+
+    const handleFomrSubmit = event => {
+        event.preventDefault();
+        const newUserName = userNameRef.current.value;
+        const newEmail = emailRef.current.value;
+        const newPassword = passwordRef.current.value;
+        console.log(newEmail, newPassword, newUserName);
     }
 
     return (
@@ -19,18 +30,18 @@ const Register = () => {
                 <div className="contentBox">
                     <div className="formBox">
                         <h2>Register</h2>
-                        <form>
+                        <form onSubmit={handleFomrSubmit}>
                             <div className="inputBox">
                                 <span>Username</span>
-                                <input type="text" name="username" />
+                                <input type="text" ref={userNameRef} name="username" />
                             </div>
                             <div className="inputBox">
                                 <span>Email</span>
-                                <input type="email" name="email" />
+                                <input type="email" ref={emailRef} name="email" />
                             </div>
                             <div className="inputBox">
                                 <span>Password</span>
-                                <input type="password" name="password" />
+                                <input type="password" ref={passwordRef} name="password" />
                             </div>
                             <div className="inputBox">
                                 <input type="submit" value="Sigp Up" />
