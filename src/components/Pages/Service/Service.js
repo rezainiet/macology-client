@@ -16,7 +16,7 @@ const Service = ({ service }) => {
                     <div className="card-body">
                         <h3 className="card-title">{name}</h3>
                         <p className="card-subtitle">Price: {price}</p>
-                        <p className="card-text text-muted">{description}</p>
+                        <p className="card-text text-muted">{description.slice(0, 120)}....</p>
                         <div className="btn-group">
                             <button className="btn btn-secondary" disabled>Stock: {qty}</button>
                             <button className="btn btn-warning text-muted" onClick={() => handleManageStock(_id)}>Update QTY</button>
