@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 
 const InventoryDetail = () => {
     const [product, setProduct] = useState({});
+    const navigate = useNavigate('');
     const qtyRef = useRef('');
-    const [quantity, setQuantity] = useState('');
     const { inventoryId } = useParams();
     const { _id, qty, name, description, img, price, supp } = product;
 
@@ -15,7 +15,7 @@ const InventoryDetail = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
-    }, [quantity]);
+    }, [product]);
 
 
 
@@ -23,7 +23,6 @@ const InventoryDetail = () => {
     const handleUpdateQuanity = () => {
         const newQty = parseInt(qtyRef.current.value) + parseInt(qty);
         // console.log(typeof (parseInt(qty)));
-        setQuantity(newQty);
         const newProduct = {
             newQty, name, description, img, price, supp
         }
@@ -48,7 +47,6 @@ const InventoryDetail = () => {
             return alert('You have to update your product before delivered')
         }
         const newQty = parseInt(qty) - 1;
-        setQuantity(newQty);
         const newProduct = {
             newQty, name, description, img, price, supp
         }
@@ -64,12 +62,19 @@ const InventoryDetail = () => {
             .then((data) => console.log(data));
     }
 
+    const handleClick = () => {
+        navigate('/manageinventories');
+    }
+
 
     return (
         <>
             <div className="container">
+                <div className="text-center"><button className="btn btn-primary mt-5" onClick={handleClick}>Manage Inventories</button></div>
                 <div className="d-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-xl-center justify-content-xxl-center">
                     <div className="card my-5" style={{ maxWidth: '1020px' }}>
+                        <div className="btn-container">
+                        </div>
                         <div className="row g-0">
                             <div className="col-md-4 d-flex justify-content-center">
                                 <img src={img} className="img-fluid rounded-start w-100" alt="..." />
