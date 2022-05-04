@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const { _id, name, price, description, img, supp } = service;
+    const { _id, name, price, description, img, supp, qty } = service;
     const navigate = useNavigate();
 
     const handleManageStock = (id) => {
@@ -18,7 +18,7 @@ const Service = ({ service }) => {
                         <p className="card-subtitle">Price: {price}</p>
                         <p className="card-text text-muted">{description}</p>
                         <div className="btn-group">
-                            <button className="btn btn-secondary" disabled>Stock: 12</button>
+                            <button className="btn btn-secondary" disabled>Stock: {qty}</button>
                             <button className="btn btn-warning text-muted" onClick={() => handleManageStock(_id)}>Update QTY</button>
                         </div>
                     </div>
