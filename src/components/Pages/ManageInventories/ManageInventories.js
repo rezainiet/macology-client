@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';

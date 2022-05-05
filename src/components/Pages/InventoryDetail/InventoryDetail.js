@@ -7,7 +7,7 @@ const InventoryDetail = () => {
     const navigate = useNavigate('');
     const qtyRef = useRef('');
     const { inventoryId } = useParams();
-    const { _id, qty, name, description, img, price, supp } = product;
+    const { qty, name, description, img, price, supp } = product;
 
 
     useEffect(() => {

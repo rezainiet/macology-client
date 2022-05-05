@@ -2,12 +2,25 @@ import React, { useRef, useState } from 'react';
 import googleLogo from '../../../images/google.ico';
 import bg from '../../../images/auth.svg'
 import { useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const Register = () => {
     const navigate = useNavigate();
     const userNameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
+
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    if (user) {
+        navigate('/');
+    }
 
     const handleNavigateLogin = () => {
         navigate('/login');
@@ -16,9 +29,9 @@ const Register = () => {
     const handleFomrSubmit = event => {
         event.preventDefault();
         const newUserName = userNameRef.current.value;
-        const newEmail = emailRef.current.value;
-        const newPassword = passwordRef.current.value;
-        console.log(newEmail, newPassword, newUserName);
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        createUserWithEmailAndPassword(email, password);
     }
 
     return (
