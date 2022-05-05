@@ -6,6 +6,7 @@ import Login from './components/Auth/Login/Login';
 import Register from './components/Auth/Register/Register';
 import InventoryDetail from './components/Pages/InventoryDetail/InventoryDetail';
 import ManageInventories from './components/Pages/ManageInventories/ManageInventories';
+import AddInventoryItem from './components/Pages/AddInventoryItem/AddInventoryItem';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='inventory/:inventoryId' element={<InventoryDetail></InventoryDetail>}></Route>
         <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
+        <Route path='/add-inventory-item' element={<AddInventoryItem></AddInventoryItem>}></Route>
       </Routes>
     </div>
   );

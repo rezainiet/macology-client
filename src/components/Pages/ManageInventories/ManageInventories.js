@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Table } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../hooks/useProducts';
 
 
@@ -7,6 +8,7 @@ import useProducts from '../../../hooks/useProducts';
 
 const ManageInventories = () => {
     const [products, setProducts] = useProducts();
+    const navigate = useNavigate('');
 
 
     const handleDeleteItem = (id) => {
@@ -23,11 +25,17 @@ const ManageInventories = () => {
             })
     }
 
+    const handleAddItemBtn = () => {
+        navigate('/add-inventory-item')
+    }
 
     return (
         <div>
-            <h2>Manage Inventories</h2>
+            <h2 className='text-center border-bottom pb-2 my-3'>Manage Inventories</h2>
             <div className="container">
+                <div className="text-end btn-lg">
+                    <button className='btn btn-success' onClick={handleAddItemBtn}>Add New Item</button>
+                </div>
                 <Table striped bordered hover>
                     <thead>
                         <tr>

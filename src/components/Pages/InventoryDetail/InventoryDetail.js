@@ -21,7 +21,15 @@ const InventoryDetail = () => {
 
     //  handle form submit and update product quantity
     const handleUpdateQuanity = () => {
-        const newQty = parseInt(qtyRef.current.value) + parseInt(qty);
+
+        const getQty = parseInt(qtyRef.current.value);
+
+        if (getQty.length <= 0) {
+            return alert('alert')
+        }
+
+
+        const newQty = getQty + parseInt(qty);
         // console.log(typeof (parseInt(qty)));
         const newProduct = {
             newQty, name, description, img, price, supp
@@ -87,7 +95,7 @@ const InventoryDetail = () => {
                                     <h5 className="card-text">Price: {price}</h5>
                                     <h5 className="card-text">Available: {qty} <button className='btn btn-danger' onClick={handleDelivered}>Delivered</button></h5>
                                     <div className="btn-group my-2">
-                                        <input type="text" ref={qtyRef} className='form-control' required placeholder='Enter Quantity' />
+                                        <input type="number" ref={qtyRef} className='form-control' required min="1" placeholder='Enter Quantity' />
                                         <button type='submit' onClick={handleUpdateQuanity} className='btn btn-success px-2 btn-sm'>Update Quantity</button>
                                     </div>
                                 </div>
