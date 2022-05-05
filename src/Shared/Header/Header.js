@@ -2,16 +2,18 @@ import React from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo2.png'
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const handleLogOut = () => {
         signOut(auth);
     }
+
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">

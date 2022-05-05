@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import googleLogo from '../../../images/google.ico';
 import bg from '../../../images/auth.svg'
 import { useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
 const Register = () => {
@@ -10,14 +10,17 @@ const Register = () => {
     const userNameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [sendEmailVerification, sending] = useSendEmailVerification(auth);
+    let errorMessage;
 
     const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-    ] = useCreateUserWithEmailAndPassword(auth);
+        createUserWithEmailAndPassword
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
+    if (error) {
+        errorMessage = <div><p className="text-danger">Wrong attempt! Please try again.</p></div>
+    }
     if (user) {
         navigate('/');
     }
@@ -31,7 +34,7 @@ const Register = () => {
         const newUserName = userNameRef.current.value;
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        createUserWithEmailAndPassword(email, password);
+        createUserWithEmailAndPassword(email, password, { sendEmailVerification });
         navigate('/login')
     }
 
@@ -47,16 +50,17 @@ const Register = () => {
                         <form onSubmit={handleFomrSubmit}>
                             <div className="inputBox">
                                 <span>Username</span>
-                                <input type="text" ref={userNameRef} name="username" />
+                                <input type="text" ref={userNameRef} name="username" required />
                             </div>
                             <div className="inputBox">
                                 <span>Email</span>
-                                <input type="email" ref={emailRef} name="email" />
+                                <input type="email" ref={emailRef} name="email" required />
                             </div>
                             <div className="inputBox">
                                 <span>Password</span>
-                                <input type="password" ref={passwordRef} name="password" />
+                                <input type="password" ref={passwordRef} name="password" required />
                             </div>
+                            {errorMessage}
                             <div className="inputBox">
                                 <input type="submit" value="Sigp Up" />
                             </div>
@@ -66,7 +70,7 @@ const Register = () => {
                         </form>
                         <h3 className="socialLoginText">Continue with social media</h3>
                         <ul className="social">
-                            <li><img src={googleLogo} alt="" /></li>
+                            <li onClick={() => signInWithGoogle()}><img src={googleLogo} alt="" /></li>
                         </ul>
                     </div>
                 </div>

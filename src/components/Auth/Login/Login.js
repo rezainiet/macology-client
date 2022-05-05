@@ -3,7 +3,7 @@ import './Login.css'
 import googleLogo from '../../../images/google.ico';
 import bg from '../../../images/auth.svg'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
 
@@ -12,12 +12,10 @@ const Login = () => {
     const passwordRef = useRef('');
     const location = useLocation();
     const navigate = useNavigate();
+    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
     let errorMessage;
     const [
-        signInWithEmailAndPassword,
-        user,
-        loading,
-        error,
+        signInWithEmailAndPassword
     ] = useSignInWithEmailAndPassword(auth);
 
     const from = location?.state?.from?.pathname || '/';
@@ -71,7 +69,7 @@ const Login = () => {
                         </form>
                         <h3 className="socialLoginText">Continue with social media</h3>
                         <ul className="social">
-                            <li><img src={googleLogo} alt="" /></li>
+                            <li onClick={() => signInWithGoogle()}><img src={googleLogo} alt="" /></li>
                         </ul>
                     </div>
                 </div>

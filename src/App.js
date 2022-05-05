@@ -8,6 +8,7 @@ import InventoryDetail from './components/Pages/InventoryDetail/InventoryDetail'
 import ManageInventories from './components/Pages/ManageInventories/ManageInventories';
 import AddInventoryItem from './components/Pages/AddInventoryItem/AddInventoryItem';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import NotVerified from './components/NotVerified/NotVerified';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <InventoryDetail></InventoryDetail>
           </RequireAuth>
         }></Route>
+        <Route path='/notverified' element={<NotVerified></NotVerified>}></Route>
         <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/add-inventory-item' element={<AddInventoryItem></AddInventoryItem>}></Route>
       </Routes>
