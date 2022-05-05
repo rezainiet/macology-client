@@ -1,7 +1,10 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
-const AddInventoryItem = () => {
-
+const AddItem = () => {
+    const [user] = useAuthState(auth);
+    const supplier = user?.uid;
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
@@ -10,7 +13,8 @@ const AddInventoryItem = () => {
             price: event.target.price.value,
             qty: parseInt(event.target.quantity.value),
             description: event.target.desc.value,
-            img: event.target.img.value
+            img: event.target.img.value,
+            supp: supplier
         }
 
         fetch('http://localhost:4000/products', {
@@ -34,7 +38,7 @@ const AddInventoryItem = () => {
         <div className="container">
             <div className=" text-center mt-5 ">
                 <div className="text-center border-bottom mb-5">
-                    <h1>Create a Product</h1>
+                    <h1>Add an Item</h1>
                 </div>
             </div>
             <div className="row ">
@@ -97,4 +101,4 @@ const AddInventoryItem = () => {
     );
 };
 
-export default AddInventoryItem;
+export default AddItem;
