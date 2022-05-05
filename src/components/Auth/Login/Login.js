@@ -1,16 +1,18 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import './Login.css'
 import googleLogo from '../../../images/google.ico';
 import bg from '../../../images/auth.svg'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Loading from '../../Loading/Loading';
 
 const Login = () => {
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const location = useLocation();
     const navigate = useNavigate();
+    let errorMessage;
     const [
         signInWithEmailAndPassword,
         user,
@@ -18,21 +20,29 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
-    const handleNavigateRegister = () => {
-        navigate('/register');
-    }
-
     const from = location?.state?.from?.pathname || '/';
     const handleFormSubmit = event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        console.log(email, password)
         signInWithEmailAndPassword(email, password)
-            .then(() => {
-                navigate(from, { replace: true });
-            })
+    };
+
+    if (error) {
+        errorMessage = <div><p className="text-danger">Wrong attempt!!! Please try again.</p></div>
     }
+
+    if (loading) {
+        <Loading></Loading>
+    }
+    if (user) {
+        navigate(from, { replace: true });
+    }
+
+    const handleNavigateRegister = () => {
+        navigate('/register');
+    };
+
     return (
         <div>
             <section>
@@ -51,6 +61,7 @@ const Login = () => {
                                 <span>Password</span>
                                 <input ref={passwordRef} type="password" name="password" />
                             </div>
+                            {errorMessage}
                             <div className="inputBox">
                                 <input type="submit" value="Login" />
                             </div>
