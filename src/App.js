@@ -10,6 +10,7 @@ import AddInventoryItem from './components/Pages/AddInventoryItem/AddInventoryIt
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import NotVerified from './components/NotVerified/NotVerified';
 import AddItem from './components/Pages/AddItem/AddItem';
+import MyItems from './components/Pages/MyItems/MyItems';
 
 function App() {
   return (
@@ -28,6 +29,11 @@ function App() {
         <Route path='/manageinventories' element={<ManageInventories></ManageInventories>}></Route>
         <Route path='/add-inventory-item' element={<AddInventoryItem></AddInventoryItem>}></Route>
         <Route path='/add-item' element={<AddItem></AddItem>}></Route>
+        <Route path='/my-items' element={
+          <RequireAuth>
+            <MyItems></MyItems>
+          </RequireAuth>
+        }></Route>
       </Routes>
     </div>
   );
