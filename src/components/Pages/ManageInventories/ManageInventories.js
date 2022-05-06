@@ -11,7 +11,7 @@ const ManageInventories = () => {
 
 
     const handleDeleteItem = (id) => {
-        const url = `http://localhost:4000/products/${id}`
+        const url = `https://fathomless-bastion-59824.herokuapp.com/products/${id}`
         console.log(url);
         fetch(url, {
             method: "DELETE",

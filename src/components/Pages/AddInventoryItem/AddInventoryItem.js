@@ -13,7 +13,7 @@ const AddInventoryItem = () => {
             img: event.target.img.value
         }
 
-        fetch('http://localhost:4000/products', {
+        fetch('https://fathomless-bastion-59824.herokuapp.com/products', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

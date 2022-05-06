@@ -11,7 +11,7 @@ const MyItems = () => {
     const [item, setItem] = useState({});
 
     useEffect(() => {
-        const url = `http://localhost:4000/allproducts/${userUid}`
+        const url = `https://fathomless-bastion-59824.herokuapp.com/allproducts/${userUid}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -21,7 +21,7 @@ const MyItems = () => {
     }, [])
 
     const handleDeleteItem = (id) => {
-        const url = `http://localhost:4000/products/${id}`
+        const url = `https://fathomless-bastion-59824.herokuapp.com/products/${id}`
         console.log(url);
         fetch(url, {
             method: "DELETE",

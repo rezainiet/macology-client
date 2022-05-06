@@ -11,7 +11,7 @@ const InventoryDetail = () => {
 
 
     useEffect(() => {
-        const url = `http://localhost:4000/products/${inventoryId}`
+        const url = `https://fathomless-bastion-59824.herokuapp.com/products/${inventoryId}`
         fetch(url)
             .then(res => res.json())
             .then(data => setProduct(data));
@@ -36,7 +36,7 @@ const InventoryDetail = () => {
         }
 
 
-        const url = `http://localhost:4000/products/${inventoryId}`
+        const url = `https://fathomless-bastion-59824.herokuapp.com/products/${inventoryId}`
         fetch(url, {
             method: "PUT",
             headers: {
@@ -58,7 +58,7 @@ const InventoryDetail = () => {
         const newProduct = {
             newQty, name, description, img, price, supp
         }
-        const url = `http://localhost:4000/products/${inventoryId}`
+        const url = `https://fathomless-bastion-59824.herokuapp.com/products/${inventoryId}`
         fetch(url, {
             method: "PUT",
             headers: {
