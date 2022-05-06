@@ -11,6 +11,7 @@ import RequireAuth from './components/RequireAuth/RequireAuth';
 import NotVerified from './components/NotVerified/NotVerified';
 import AddItem from './components/Pages/AddItem/AddItem';
 import MyItems from './components/Pages/MyItems/MyItems';
+import Blogs from './components/Blogs/Blogs';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='inventory/:inventoryId' element={
