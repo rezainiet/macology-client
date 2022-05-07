@@ -12,6 +12,7 @@ import NotVerified from './components/NotVerified/NotVerified';
 import AddItem from './components/Pages/AddItem/AddItem';
 import MyItems from './components/Pages/MyItems/MyItems';
 import Blogs from './components/Blogs/Blogs';
+import Footer from './Shared/Footer/Footer';
 
 function App() {
   return (
@@ -36,7 +37,13 @@ function App() {
             <MyItems></MyItems>
           </RequireAuth>
         }></Route>
+        <Route path='/manageinventories' element={
+          <RequireAuth>
+            <ManageInventories></ManageInventories>
+          </RequireAuth>
+        }></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

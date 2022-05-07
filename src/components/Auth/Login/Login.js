@@ -6,18 +6,38 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+    //  sweet alert
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+    //   react hooks
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const location = useLocation();
     const navigate = useNavigate();
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle] = useSignInWithGoogle(auth);
     let errorMessage;
+
+
+    // signInMethod 
     const [
-        signInWithEmailAndPassword
+        signInWithEmailAndPassword, user, loading, error
     ] = useSignInWithEmailAndPassword(auth);
 
+
+    // get location
     const from = location?.state?.from?.pathname || '/';
     const handleFormSubmit = event => {
         event.preventDefault();
@@ -35,8 +55,11 @@ const Login = () => {
     }
     if (user) {
         navigate(from, { replace: true });
+        Toast.fire({
+            icon: 'success',
+            title: 'Signed in successfully'
+        })
     }
-
     const handleNavigateRegister = () => {
         navigate('/register');
     };
