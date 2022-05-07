@@ -1,4 +1,6 @@
 import React from 'react';
+import ContactUs from '../../ContactUs/ContactUs';
+import ApplePay from '../ApplePay/ApplePay';
 import Hero from '../Hero/Hero';
 import Services from '../Services/Services';
 
@@ -7,6 +9,8 @@ const Home = () => {
         <div>
             <Hero></Hero>
             <Services></Services>
+            <ApplePay></ApplePay>
+            <ContactUs></ContactUs>
         </div>
     );
 };

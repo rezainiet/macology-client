@@ -1,0 +1,14 @@
+.col-12.col-md-12.col-lg-6.col-xl-6.d-flex.flex-column {
+    display: flex;
+}
+
+.col-12.col-md-12.col-lg-6.col-xl-6.d\=flex.align-items-center.justify-content-center {
+    display: flex;
+    flex-direction: column;
+}
+
+.col-12d\=flex.align-items-center.justify-content-center {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 5px
+}
