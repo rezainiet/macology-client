@@ -1,11 +1,11 @@
-# Getting Started with Create React App
+# Macology website details
 
 Live website link [Macology](https://macology-afc12.web.app/).
 
 ## Short Description: 
 This is a simple website made with `React`, `firebase`, `react router`, `node`, `express`, `mongodb` etc. Anyone can signup and login in this website. after login they can add his/her own products. They  can delete their own uploaded products. and others product. Logged in user can see their product in my items route.
 
-## Short Description: 
+## Features: 
 - User can sign up with email and password.
 - They can login with email password based authentication also google sign in method implemented.
 - User can see 6 items in the homepage and all of the items in manage inventory route.
