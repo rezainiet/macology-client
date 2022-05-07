@@ -7,6 +7,7 @@ import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-fireba
 import auth from '../../../firebase.init';
 import Loading from '../../Loading/Loading';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const Login = () => {
     //  sweet alert
@@ -39,11 +40,13 @@ const Login = () => {
 
     // get location
     const from = location?.state?.from?.pathname || '/';
-    const handleFormSubmit = event => {
+    const handleFormSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
-        signInWithEmailAndPassword(email, password)
+        signInWithEmailAndPassword(email, password);
+        const { data } = await axios.post('http://localhost:4000/login', { email });
+        localStorage.setItem('accesstoken', data.accessToken);
     };
 
     if (error) {
