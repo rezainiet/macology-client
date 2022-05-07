@@ -45,7 +45,7 @@ const Login = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('http://localhost:4000/login', { email });
+        const { data } = await axios.post('https://fathomless-bastion-59824.herokuapp.com/login', { email });
         localStorage.setItem('accesstoken', data.accessToken);
     };
 
